@@ -1,7 +1,7 @@
 # Arduino Nano frequency counter with atomic clock accuracy
 
 ## Project description and test setup
-With this project you can measure a frequency from less than 1 Hz to about 7.5 MHz, with atomic clock accuracy. All you need for it is your computer, and an Arduino Nano, which you can get for less than five dollars at eBay.
+With this project you can measure a frequency from less than 1 Hz to about 6.4 MHz, with atomic clock accuracy (fclk_I_O / 2.5 according to the datasheet, which is 16 MHz / 2.5 = 6.4 MHz, but 7.5 MHz still works, but might miss some counts then sometimes). All you need for it is your computer, and an Arduino Nano, which you can get for less than five dollars at eBay.
 
 The idea is that the Arduino counts pulses, and then a program on your computer calculates the frequency. If your computer is synchronized to a NTP time server (this is standard nowadays for most operating systems), it has a very accurate time. The USB connection and operating system introduces some inaccuracies and latencies, but the longer the program runs, the more accurate the measurement gets.
 
