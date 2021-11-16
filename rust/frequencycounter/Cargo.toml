@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 serialport = "4.0.1"
 separator = "0.4.1"
+itertools = "0.10.1"

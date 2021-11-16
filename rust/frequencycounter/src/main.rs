@@ -45,18 +45,14 @@ fn read_number(port: &mut dyn SerialPort) -> u16 {
             break;
         }
     }
+    if line.is_empty() {
+        return 0;
+    }
 
-    // return converted to int
-    if line.len() == 0 {
-        0
-    } else {
-        match str::from_utf8(&line) {
-            Ok(v) => match v.parse::<u16>() {
-                Ok(v) => v,
-                Err(_) => 0,
-            },
-            Err(_) => 0,
-        }
+    // since we added only digits, from_utf8 can't fail
+    match str::from_utf8(&line).unwrap().parse::<u16>() {
+        Ok(v) => v,
+        Err(_) => 0,
     }
 }
 
